@@ -1,7 +1,6 @@
 <?php
 $id = $_GET['id'];
 require('includes/mysql_connect.inc');
-mysql_select_db("usr_web4_5",$con);
 if($_POST['content'] != null)
 {
 	mysql_query("UPDATE pages Set fulltitle='".$_POST['fulltitle']."', content='".$_POST['content']."' WHERE id='".$id."'");

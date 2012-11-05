@@ -1,6 +1,5 @@
 <?php
 require('includes/mysql_connect.inc');
-mysql_select_db("usr_web4_5",$con);
 
 $umlaute = array("/ä/","/ö/","/ü/","/Ä/","/Ö/","/Ü/","/ß/"); 
 $replace = array("ae","oe","ue","Ae","Oe","Ue","ss");

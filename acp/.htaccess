@@ -1,0 +1,4 @@
+AuthName "intern"
+AuthType Basic
+AuthUserFile /data/www/web4/html/wietreich.com/acp/.htpasswd
+require valid-user

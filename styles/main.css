@@ -1,0 +1,121 @@
+/* @override http://wietreich.com/styles/main.css */
+
+body 
+{
+    font-family: Tahoma, sans-serif;
+    font-size: 90%;
+    color: #999999;
+    background-color: #000;
+	padding: 20px;
+    margin: 0px;
+}
+
+a:link, a:visited
+{
+	color: #5C9911;
+	text-decoration: none;
+	border-bottom: 1px dashed;
+}
+
+a:hover, a:active
+{
+	color: #FFFFFF;
+	border: none;
+}
+
+header
+{
+}
+
+article a:link, article a:visited
+{
+    color: #5C9911;
+    text-decoration: none;
+    border-bottom: 1px dashed;
+}
+ 
+article a:hover, article a:active
+{
+	color: #FFFFFF;
+    background-color: #5C9911;
+    border: none;
+}
+ 
+#wrap
+{
+  margin: auto;
+}
+ 
+#main 
+{
+	background-color: #404040;
+	border-radius: 15px;
+}
+ 
+article
+{
+	margin-top: 30px;
+	padding: 10px;
+    background-color: #FFFFFF;
+    color: #000000;
+    text-align: justify;
+    border-radius: 5px 5px 10px 10px;
+}
+ 
+article p:first-letter
+{
+    font-size: 150%;
+}
+ 
+nav
+{
+	padding: 2px;
+}
+ 
+nav ul
+{
+    margin: 0px;
+    padding: 5px;
+}
+ 
+nav ul li
+{
+    display: inline;
+}
+ 
+nav ul li a:link, nav ul li a:visited
+{
+	color: #5C9911;
+    text-decoration: none;
+    border: none;
+    display: block;
+    float: left;
+    padding: 5px;
+    font-weight: bold;
+    	border-left: 2px solid #5C9911;
+
+}
+ 
+nav ul li a:hover, nav ul li a:active
+{
+    background: #5C9911;
+    color: #FFFFFF;
+}
+
+nav ul li.current a:link, nav ul li.current a:visited
+{
+	border-left: 2px solid #FFFFFF;
+}
+
+#sitecontrols
+{
+	float: right;
+	margin-right: 10px;
+}
+ 
+footer
+{
+    padding: 10px;
+    margin-top: 30px;
+    background-color: #333333;
+}

@@ -1,0 +1,39 @@
+<?php
+require('includes/mysql_connect.inc');
+if (!$con)
+  {
+  die('Could not connect: ' . mysql_error());
+  }
+
+mysql_select_db("usr_web4_5", $con);
+
+$result = mysql_query("SELECT * FROM kunden ORDER BY id");
+$result1 = mysql_query("SELECT * FROM artikel ORDER BY artikelID");
+
+while($row = mysql_fetch_array($result))
+  {
+  echo "KundenID: ";
+  echo $row['id'];
+  if($row['anr']==0){echo " Anrede: Herr";}else{echo " Anrede: Frau";}
+  echo " Vorname: " . $row['vorname'];
+  echo " Name: " . $row['name'];
+  echo " Email: " . $row['email'];
+  echo " Tel.Nr.: " . $row['tel'];
+  echo " Strasse: " . $row['str'];
+  echo " Hn.Nr.: " . $row['hnr'];
+  echo " PLZ: " . $row['plz'];
+  echo " Ort: " . $row['ort'];
+  echo "<br />";
+  }
+  echo"<hr></hr>";
+while($zei = mysql_fetch_array($result1))
+  {
+  echo "ArtikelID: ";
+  echo $zei['artikelID'];
+  echo " Bezeichnung: " . $zei['Bezeichnung'];
+  echo " Preis/Stueck: " . $zei['PreisProStueck'];
+  echo " Anzahl: " . $zei['Anzahl'];
+  echo "<br />";
+  }
+mysql_close($con);
+?>

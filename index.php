@@ -3,7 +3,6 @@ require("includes/header.inc");
 
 require('includes/mysql_connect.inc');
 
-mysql_select_db("usr_web4_5",$con);
 $query = mysql_query("SELECT * FROM pages WHERE ".$do." = '".$par."'");
 $data = mysql_fetch_object($query);
 // Error 404

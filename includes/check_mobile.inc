@@ -1,6 +1,10 @@
 <?php
 
 function check_mobile() {
+  if (!isset($_SERVER["HTTP_USER_AGENT"])) {
+    return false;
+  }
+
   $agents = array(
     'iPhone', 'Android', 'iPod', 'Windows Phone',
     'Windows CE', 'Pocket', 'Mobile',
@@ -8,12 +12,12 @@ function check_mobile() {
     'PDA', 'Handheld', 'Symbian',
     'WAP', 'Palm', 'Avantgo',
     'cHTML', 'BlackBerry', 'Opera Mini',
-    'Nokia'
+    'Nokia', ' Opera Mobi'
   );
 
-  // PrŸfen der Browserkennung
+  // PrÃ¼fen der Browserkennung
   for ($i=0; $i<count($agents); $i++) {
-    if(isset($_SERVER["HTTP_USER_AGENT"]) && strpos($_SERVER["HTTP_USER_AGENT"], $agents[$i]) !== false)
+    if(strpos($_SERVER["HTTP_USER_AGENT"], $agents[$i]) !== false)
       return true;
   }
 

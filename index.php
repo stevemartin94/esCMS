@@ -1,24 +1,34 @@
 <?php
+require_once("includes/config.inc");
+require_once("includes/util.inc");
+require_once("includes/page_manager.class.inc");
+
+$mysqli = new mysqli($config['db_host'], $config['db_user'], $config['db_pass'], $config['db_dbname']);
+
+$pagemgr = new PageManager($mysqli);
+
+try {
+    if (isset($_GET['p']) && is_string($_GET['p'])) {
+        $page = $pagemgr->getPageByTitle($_GET['p']);
+    } elseif (isset($_GET['id']) && is_string($_GET['id'])) {
+        $page = $pagemgr->getPageByID($_GET['id']);
+    } else {
+        $page = $pagemgr->getPageByTitle('index');
+    }
+
+    if (!$page) {
+        $page = $pagemgr->getPageByTitle('404');
+    }
+} catch (DatabaseException $ex) {
+    echo($ex->getMessage());
+}
+
 require("includes/header.inc");
 
-require('includes/mysql_connect.inc');
+    echo '<h1>'.$page->fulltitle.'</h1>';
+    echo $page->content;
 
-$query = mysql_query("SELECT * FROM pages WHERE ".$do." = '".$par."'");
-$data = mysql_fetch_object($query);
-// Error 404
-if($data == null)
-{
-	$query = mysql_query("SELECT * FROM pages WHERE title = '404'");
-	$data = mysql_fetch_object($query);
-	echo $data->content;
-}
-else
-{
-    echo '<h1>'.$data->fulltitle.'</h1>';
-	echo $data->content;
-}
-
-mysql_close($con);
+$mysqli->close();
 
 require("includes/footer.inc");
 ?>

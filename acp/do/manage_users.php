@@ -24,8 +24,7 @@ if($action == 'add')
 	</form>
 	';
 }
-
-else if($action == 'edit')
+elseif($action == 'edit')
 {
 	if($_POST['username'] != null and $_POST['password'] != null)
 	{

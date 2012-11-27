@@ -5,7 +5,6 @@ $del = $_GET['del'];
 $really = $_GET['really'];
 
 require("includes/mysql_connect.inc");
-mysql_select_db("usr_web4_5", $con);
 
 if($action == 'add')
 {

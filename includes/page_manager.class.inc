@@ -1,7 +1,6 @@
 <?php
     require_once('page.class.inc');
-
-    class DatabaseException extends RuntimeException { }
+    require_once('database_exception.class.inc');
 
     class PageManager {
         private $mysqli;
@@ -10,9 +9,6 @@
 
         function __construct($mysqli) {
             $this->mysqli = $mysqli;
-            if ($this->mysqli->connect_error) {
-                throw new DatabaseException("Fehler bei Datenbankverbindung: (".$this->mysqli->connect_errno.") ".$this->mysqli->connect_error);
-            }
 
             $this->title_stmt = $this->mysqli->prepare("SELECT id, title, fulltitle, content FROM `pages` WHERE `title` = ?");
             if (!$this->title_stmt) {
@@ -47,7 +43,7 @@
             if (!$this->id_stmt->fetch()) {
                 return NULL;
             }
-            $this->title_stmt->free_result();
+            $this->id_stmt->free_result();
             return new Page($id, $title, $fulltitle, $content);
         }
     }

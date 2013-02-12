@@ -7,19 +7,6 @@ $time = explode(' ', $time);
 $time = $time[1] + $time[0];
 $start = $time;
 
-// get page url
-function curPageURL() {
- $pageURL = 'http';
- if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
- $pageURL .= "://";
- if ($_SERVER["SERVER_PORT"] != "80") {
-  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
- } else {
-  $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
- }
- return $pageURL;
-}
-
 // set desktop or mobile style
 $style = get_getvar('style');
 if($style != NULL)
@@ -115,11 +102,6 @@ $fulltitle = $page->fulltitle;
     </nav>
     <div id="sitecontrols">
     Breite: 
-    <script type="text/javascript">
-        document.write("<a href=\"#\" onclick=\"setWidth('100%')\">100%</a> - <a href=\"#\" onclick=\"setWidth('1000px')\">1000px</a>");
-    </script>
-    <noscript>
-    <a href="?width=100">100%</a> - <a href="?width=1000px">1000px</a>
-    </noscript>
+    <a href="?width=100%25" onclick="setWidth('100%'); return false;">100%</a> - <a href="?width=1000px" onclick="setWidth('1000px'); return false;">1000px</a>
     </div>
     <article>
